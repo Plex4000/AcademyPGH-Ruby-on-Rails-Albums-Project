@@ -1,0 +1,35 @@
+<h1>Edit Album</h1>
+ 
+<%= form_with(model: @album, local: true) do |form| %>
+ 
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@album.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @album.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+  <strong><%= form.label :title %></strong><br>
+  <%= form.text_field :title %>
+</p>
+
+<p>
+<strong><%= form.label :artist %></strong><br>
+<%= form.text_field :artist %>
+</p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+
+<%= link_to 'Add a Song', new_album_song_path(@album) %> | <%= link_to 'List All Albums', albums_path %> 

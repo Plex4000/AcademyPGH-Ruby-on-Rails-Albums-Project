@@ -1,0 +1,15 @@
+<h2>Add a Song:</h2>
+
+<%= form_with(model: [ @album, @album.songs.build ], local: true) do |form| %>
+  <p>
+    <strong><%= form.label :title %></strong><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+  <strong><%= form.label :duration %></strong><br>
+  <%= form.text_field :duration %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
